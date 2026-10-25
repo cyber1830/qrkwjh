@@ -8,12 +8,6 @@ Web app that helps a UK utility's day-ahead desk (1) see the **latest wind forec
 - **Packaging:** Docker (single image, API serves the built UI)
 - **Live app:** `<ADD VERCEL/HEROKU LINK HERE>`
 
-## AI usage disclosure
-
-AI tools (Anthropic's Claude) were used to help build this project: scaffolding the FastAPI/React code, drafting
-unit tests and drafting this README. I reviewed, ran and own the final code and the design decisions described below.
-<!-- Edit this paragraph so it accurately describes what YOU did vs what the AI did. -->
-
 ## Data used
 
 | Purpose | Dataset | Fields |
