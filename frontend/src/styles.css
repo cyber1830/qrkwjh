@@ -1,0 +1,24 @@
+:root { --bg:#f5f7fa; --card:#fff; --ink:#1f2937; --mute:#6b7280; --line:#e5e7eb; --brand:#0b6bcb; }
+* { box-sizing: border-box; }
+body { margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background:var(--bg); color:var(--ink); }
+.page { max-width:1100px; margin:0 auto; padding:24px 16px 48px; }
+header { display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; align-items:flex-end; }
+h1 { margin:0; font-size:1.5rem; } .sub { margin:4px 0 0; color:var(--mute); }
+h3 { margin:0 0 12px; font-size:1rem; }
+nav { display:flex; gap:8px; margin:20px 0 16px; }
+nav button { padding:8px 16px; border:1px solid var(--line); background:var(--card); border-radius:8px; cursor:pointer; font-size:.95rem; }
+nav button.on { background:var(--brand); color:#fff; border-color:var(--brand); }
+label { display:flex; flex-direction:column; gap:4px; font-size:.8rem; color:var(--mute); }
+select { padding:6px 8px; border:1px solid var(--line); border-radius:6px; font-size:.95rem; }
+.toolbar { display:flex; gap:20px; align-items:flex-end; flex-wrap:wrap; margin-bottom:16px; }
+.kpis { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:12px; margin-bottom:16px; }
+.kpi, .card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 16px; margin-bottom:16px; }
+.kpis .kpi { margin:0; }
+.kpi-label { font-size:.78rem; color:var(--mute); text-transform:uppercase; letter-spacing:.04em; }
+.kpi-value { font-size:1.35rem; font-weight:650; margin-top:4px; } .kpi-hint { font-size:.78rem; color:var(--mute); margin-top:2px; }
+.note { color:var(--mute); font-size:.85rem; margin:8px 0; } .err { color:#b91c1c; }
+.tablewrap { max-height:420px; overflow:auto; margin-top:10px; }
+table { width:100%; border-collapse:collapse; font-size:.85rem; } th,td { padding:6px 10px; border-bottom:1px solid var(--line); text-align:left; }
+th { position:sticky; top:0; background:var(--card); }
+summary { cursor:pointer; font-weight:600; }
+footer { margin-top:32px; color:var(--mute); font-size:.78rem; }
