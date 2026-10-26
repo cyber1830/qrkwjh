@@ -39,3 +39,10 @@ select { padding:9px 11px; border-radius:9px; } .kpis { gap:14px; margin-bottom:
 .kpi-label { font-size:.72rem; letter-spacing:.07em; font-weight:750; } .kpi-value { font-size:1.45rem; font-weight:750; margin-top:6px; }
 th { background:#eef5fc; color:#35506f; } footer { margin-top:34px; text-align:center; }
 @media (max-width:640px) { .page{padding:18px 12px 36px} header{padding:22px 20px;border-radius:18px} .cutoff{width:100%} nav{overflow:auto} }
+.status-row { margin-top:18px; color:#c7d8ec; font-size:.78rem; display:flex; align-items:center; gap:8px; }
+.status-dot { width:8px; height:8px; border-radius:50%; background:#4ade80; box-shadow:0 0 0 4px rgba(74,222,128,.14); }
+nav button span { margin-right:6px; font-size:1rem; } .section-intro { display:flex; justify-content:space-between; align-items:end; gap:16px; margin:8px 0 18px; }
+.eyebrow { color:var(--brand); text-transform:uppercase; letter-spacing:.1em; font-size:.7rem; font-weight:800; }
+h2 { margin:4px 0 0; font-size:1.35rem; letter-spacing:-.025em; } .data-badge { color:#167047; background:#e6f7ef; border:1px solid #b9e8d0; border-radius:999px; padding:7px 11px; font-size:.75rem; font-weight:750; white-space:nowrap; }
+.loading-card { padding:28px; background:var(--card); border:1px solid var(--line); border-radius:16px; color:var(--mute); display:flex; align-items:center; gap:10px; box-shadow:0 8px 24px rgba(39,77,122,.06); }
+.spinner { width:16px; height:16px; border:2px solid #cfe0f1; border-top-color:var(--brand); border-radius:50%; animation:spin .8s linear infinite; } @keyframes spin { to { transform:rotate(360deg); } }

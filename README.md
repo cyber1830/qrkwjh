@@ -6,7 +6,8 @@ Web app that helps a UK utility's day-ahead desk (1) see the **latest wind forec
 - **Backend:** Python 3.12, FastAPI, pandas
 - **Frontend:** React 18 (Vite), Recharts
 - **Packaging:** Docker (single image, API serves the built UI)
-- **Live app:** `<ADD VERCEL/HEROKU LINK HERE>`
+- **Live app:** https://qrkwjh.vercel.app/
+
 
 ## Data used
 
@@ -43,9 +44,12 @@ backend/app/elexon.py     Elexon client + local JSON snapshot (python -m app.ele
 backend/app/analysis.py   pure pandas logic: decision forecast, metrics, horizon analysis
 backend/app/main.py       FastAPI routes (/api/meta, /api/day/{date}, /api/accuracy) + serves the UI
 backend/tests/            pytest unit + API tests (synthetic data, no network)
+backend/data/             packaged January 2026 snapshot for serverless deployment
 frontend/src/             React app (DayView, AccuracyView, API helpers)
+frontend/public/          browser favicon and wind mark
 data/                     cached Elexon snapshot (jan2026.json)
-Dockerfile, heroku.yml    container build and Heroku container deploy
+vercel.json               Vercel Services configuration for the frontend and FastAPI backend
+Dockerfile, heroku.yml    optional container build and Heroku deployment
 ```
 
 ## Run it
@@ -68,22 +72,10 @@ cd ../frontend && npm install && npm run dev   # UI on :5173, proxies /api to :8
 
 ## Deploy on Vercel
 
-The project can be deployed to Vercel using its free Hobby plan for personal/non-commercial demos.
-The Vercel configuration builds the React frontend and exposes the FastAPI application through
-`api/index.py`; the existing `/api/meta`, `/api/day/{date}`, and `/api/accuracy` routes remain unchanged.
+The project is deployed at https://qrkwjh.vercel.app/ using Vercel Services. The React frontend and
+FastAPI backend are deployed as two services on one domain.
 
-1. Push the repository to GitHub.
-2. In Vercel, choose **Add New Project** and import the GitHub repository.
-3. Keep the repository root as the project root and deploy. `vercel.json` supplies the build command and output directory.
-4. Verify `/api/health` and then open the deployed site.
-
-## Deploy on Heroku (alternative, Docker container stack)
-
-```bash
-heroku create <anonymous-name>
-heroku stack:set container
-git push heroku main
-```
+To redeploy, import the GitHub repository in Vercel with the repository root and Services preset. `vercel.json` defines the frontend and backend services.
 
 ## API
 

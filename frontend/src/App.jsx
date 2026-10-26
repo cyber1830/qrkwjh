@@ -25,6 +25,7 @@ export default function App() {
           <p className="sub">
             National wind forecasts (Elexon WINDFOR) vs outturn (FUELHH) · January 2026 deliveries
           </p>
+          <div className="status-row"><span className="status-dot" /> Live snapshot · 31 delivery days · Europe/London</div>
         </div>
         <label className="cutoff">
           Gate closure (UK time, D-1)
@@ -34,8 +35,8 @@ export default function App() {
         </label>
       </header>
       <nav>
-        <button className={tab === "day" ? "on" : ""} onClick={() => setTab("day")}>Day-ahead decision</button>
-        <button className={tab === "acc" ? "on" : ""} onClick={() => setTab("acc")}>Forecast accuracy</button>
+        <button className={tab === "day" ? "on" : ""} onClick={() => setTab("day")}><span>◈</span> Day-ahead decision</button>
+        <button className={tab === "acc" ? "on" : ""} onClick={() => setTab("acc")}><span>⌁</span> Forecast accuracy</button>
       </nav>
       {tab === "day" ? <DayView meta={meta} cutoff={cutoff} /> : <AccuracyView cutoff={cutoff} />}
       <footer>Contains BMRS data © Elexon Limited.</footer>

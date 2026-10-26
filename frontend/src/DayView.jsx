@@ -29,6 +29,7 @@ export default function DayView({ meta, cutoff }) {
 
   return (
     <section>
+      <div className="section-intro"><div><span className="eyebrow">Decision workspace</span><h2>Plan tomorrow with the latest wind view</h2></div><span className="data-badge">● Elexon data</span></div>
       <div className="toolbar">
         <label>
           Delivery day
@@ -45,7 +46,7 @@ export default function DayView({ meta, cutoff }) {
       </div>
 
       {error && <p className="err">{error}</p>}
-      {!data && !error && <p>Loading…</p>}
+      {!data && !error && <div className="loading-card"><span className="spinner" /> Loading forecast workspace…</div>}
 
       {data && (
         <>

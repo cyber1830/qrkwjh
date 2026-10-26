@@ -23,11 +23,12 @@ export default function AccuracyView({ cutoff }) {
   }, [cutoff]);
 
   if (error) return <p className="err">{error}</p>;
-  if (!d) return <p>Loading…</p>;
+  if (!d) return <div className="loading-card"><span className="spinner" /> Calculating accuracy metrics…</div>;
   const s = d.summary;
 
   return (
     <section>
+      <div className="section-intro"><div><span className="eyebrow">Performance intelligence</span><h2>How reliable is the forecast?</h2></div><span className="data-badge">● January 2026</span></div>
       <p className="note">
         Scored on the forecast that was actually available at gate closure ({String(cutoff).padStart(2, "0")}:00 on D-1) for every
         January half-hour that has an outturn.
