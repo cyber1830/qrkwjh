@@ -66,7 +66,18 @@ cd ../frontend && npm install && npm run dev   # UI on :5173, proxies /api to :8
 
 **Tests:** `cd backend && python -m pytest -q`
 
-## Deploy (Heroku, container stack)
+## Deploy on Vercel
+
+The project can be deployed to Vercel using its free Hobby plan for personal/non-commercial demos.
+The Vercel configuration builds the React frontend and exposes the FastAPI application through
+`api/index.py`; the existing `/api/meta`, `/api/day/{date}`, and `/api/accuracy` routes remain unchanged.
+
+1. Push the repository to GitHub.
+2. In Vercel, choose **Add New Project** and import the GitHub repository.
+3. Keep the repository root as the project root and deploy. `vercel.json` supplies the build command and output directory.
+4. Verify `/api/health` and then open the deployed site.
+
+## Deploy on Heroku (alternative, Docker container stack)
 
 ```bash
 heroku create <anonymous-name>
