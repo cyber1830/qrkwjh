@@ -1,10 +1,9 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo } from "react";
 import { CartesianGrid, Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import { api, fmtMW, fmtTime, hhmm } from "./api.js";
 import Kpi from "./Kpi.jsx";
 
-export default function DayView({ meta, cutoff }) {
-  const [date, setDate] = useState(meta.dates[Math.min(1, meta.dates.length - 1)]);
+export default function DayView({ meta, cutoff, date, onDateChange }) {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
 
@@ -33,7 +32,7 @@ export default function DayView({ meta, cutoff }) {
       <div className="toolbar">
         <label>
           Delivery day
-          <select value={date} onChange={(e) => setDate(e.target.value)}>
+          <select value={date ?? ""} onChange={(e) => onDateChange(e.target.value)}>
             {meta.dates.map((d) => <option key={d}>{d}</option>)}
           </select>
         </label>
@@ -55,13 +54,13 @@ export default function DayView({ meta, cutoff }) {
             <Kpi label="Forecast range" value={`${fmtMW(data.forecast_min_mw)} – ${fmtMW(data.forecast_max_mw)}`} hint="Min – max half-hour" />
             <Kpi
               label="Suggested safety buffer"
-              value={risk?.n ? fmtMW(risk.p90_overforecast_mw) : "n/a"}
-              hint={risk?.n ? `P90 over-forecast, days to ${risk.based_on_days_up_to}` : "No earlier days to learn from yet"}
+              value={risk?.n ? fmtMW(risk.p90_overforecast_mw) : "—"}
+              hint={risk?.n ? `P90 over-forecast · history through ${risk.based_on_days_up_to}` : "Builds after earlier delivery days are available"}
             />
             <Kpi
               label="Typical error (MAE)"
-              value={risk?.n ? fmtMW(risk.mae_mw) : "n/a"}
-              hint={risk?.n ? `${risk.wape_pct}% of generation · no look-ahead` : ""}
+              value={risk?.n ? fmtMW(risk.mae_mw) : "—"}
+              hint={risk?.n ? `${risk.wape_pct}% of generation · no look-ahead` : "No prior-day history for this decision"}
             />
           </div>
 

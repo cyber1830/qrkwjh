@@ -8,9 +8,10 @@ export default function App() {
   const [error, setError] = useState(null);
   const [tab, setTab] = useState("day");
   const [cutoff, setCutoff] = useState(9);
+  const [selectedDate, setSelectedDate] = useState(null);
 
   useEffect(() => {
-    api.meta().then((m) => { setMeta(m); setCutoff(m.default_cutoff_hour); }).catch((e) => setError(e.message));
+    api.meta().then((m) => { setMeta(m); setCutoff(m.default_cutoff_hour); setSelectedDate(m.dates[Math.min(4, m.dates.length - 1)]); }).catch((e) => setError(e.message));
   }, []);
 
   if (error) return <div className="page"><p className="err">Could not load data: {error}</p></div>;
@@ -38,7 +39,7 @@ export default function App() {
         <button className={tab === "day" ? "on" : ""} onClick={() => setTab("day")}><span>◈</span> Day-ahead decision</button>
         <button className={tab === "acc" ? "on" : ""} onClick={() => setTab("acc")}><span>⌁</span> Forecast accuracy</button>
       </nav>
-      {tab === "day" ? <DayView meta={meta} cutoff={cutoff} /> : <AccuracyView cutoff={cutoff} />}
+      {tab === "day" ? <DayView meta={meta} cutoff={cutoff} date={selectedDate} onDateChange={setSelectedDate} /> : <AccuracyView cutoff={cutoff} />}
       <footer>Contains BMRS data © Elexon Limited.</footer>
     </div>
   );
