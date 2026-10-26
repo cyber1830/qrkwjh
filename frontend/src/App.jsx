@@ -20,6 +20,7 @@ export default function App() {
     <div className="page">
       <header>
         <div>
+          <div className="brand"><img src="/wind-mark.svg" alt="" /><span>Wind intelligence</span></div>
           <h1>UK Wind Generation – Day-Ahead Forecast Portal</h1>
           <p className="sub">
             National wind forecasts (Elexon WINDFOR) vs outturn (FUELHH) · January 2026 deliveries
@@ -37,7 +38,7 @@ export default function App() {
         <button className={tab === "acc" ? "on" : ""} onClick={() => setTab("acc")}>Forecast accuracy</button>
       </nav>
       {tab === "day" ? <DayView meta={meta} cutoff={cutoff} /> : <AccuracyView cutoff={cutoff} />}
-      <footer>Contains BMRS data © Elexon Limited. Built for a coding challenge; not for trading use.</footer>
+      <footer>Contains BMRS data © Elexon Limited.</footer>
     </div>
   );
 }

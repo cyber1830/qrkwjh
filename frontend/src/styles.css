@@ -22,3 +22,20 @@ table { width:100%; border-collapse:collapse; font-size:.85rem; } th,td { paddin
 th { position:sticky; top:0; background:var(--card); }
 summary { cursor:pointer; font-weight:600; }
 footer { margin-top:32px; color:var(--mute); font-size:.78rem; }
+
+/* Polished dashboard theme */
+:root { --bg:#f3f7fc; --card:rgba(255,255,255,.94); --ink:#10213d; --mute:#61708a; --line:#dce6f2; --brand:#1769d3; --navy:#07152d; }
+body { background:radial-gradient(circle at 8% 0%,#e2f3ff 0,transparent 28%),var(--bg); color:var(--ink); }
+.page { max-width:1160px; padding:34px 22px 54px; }
+header { background:linear-gradient(135deg,var(--navy),#123d70); color:#fff; border-radius:24px; padding:28px 30px; box-shadow:0 18px 45px rgba(15,49,91,.18); }
+.brand { display:flex; align-items:center; gap:8px; color:#9edfff; font-size:.75rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; margin-bottom:12px; }
+.brand img { width:25px; height:25px; }
+h1 { font-size:clamp(1.45rem,3vw,2.1rem); letter-spacing:-.035em; } .sub { margin-top:8px; color:#bdd2e8; }
+nav { margin:22px 0 18px; border-bottom:1px solid var(--line); padding-bottom:10px; }
+nav button { padding:10px 16px; border-color:transparent; background:transparent; color:var(--mute); border-radius:10px; font-weight:650; transition:.2s; }
+nav button:hover { background:#e7f1fc; color:var(--brand); } nav button.on { background:var(--brand); border-color:var(--brand); box-shadow:0 7px 18px rgba(23,105,211,.2); }
+select { padding:9px 11px; border-radius:9px; } .kpis { gap:14px; margin-bottom:18px; }
+.kpi,.card { border-color:var(--line); border-radius:16px; padding:17px 18px; box-shadow:0 8px 24px rgba(39,77,122,.06); }
+.kpi-label { font-size:.72rem; letter-spacing:.07em; font-weight:750; } .kpi-value { font-size:1.45rem; font-weight:750; margin-top:6px; }
+th { background:#eef5fc; color:#35506f; } footer { margin-top:34px; text-align:center; }
+@media (max-width:640px) { .page{padding:18px 12px 36px} header{padding:22px 20px;border-radius:18px} .cutoff{width:100%} nav{overflow:auto} }
