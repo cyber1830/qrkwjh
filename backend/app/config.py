@@ -20,5 +20,8 @@ DEFAULT_CUTOFF_HOUR = 9
 TIMEZONE = "Europe/London"
 
 _ROOT = Path(__file__).resolve().parents[2]
-DATA_FILE = Path(os.getenv("DATA_FILE", _ROOT / "data" / "jan2026.json"))
+_PACKAGED_DATA = Path(__file__).resolve().parent.parent / "data" / "jan2026.json"
+_ROOT_DATA = _ROOT / "data" / "jan2026.json"
+_configured_data = os.getenv("DATA_FILE")
+DATA_FILE = Path(_configured_data) if _configured_data else (_ROOT_DATA if _ROOT_DATA.exists() else _PACKAGED_DATA)
 STATIC_DIR = Path(os.getenv("STATIC_DIR", _ROOT / "frontend" / "dist"))
