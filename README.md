@@ -8,6 +8,9 @@ Web app that helps a UK utility's day-ahead desk (1) see the **latest wind forec
 - **Packaging:** Docker (single image, API serves the built UI)
 - **Live app:** https://qrkwjh.vercel.app/
 
+## AI usage
+
+AI tools were used to assist with implementation and documentation. The final code was reviewed and tested by the me(author).
 
 ## Data used
 
