@@ -21,8 +21,8 @@ export default function App() {
     <div className="page">
       <header>
         <div>
-          <div className="brand"><img src="/wind-mark.svg" alt="" /><span>Wind intelligence</span></div>
-          <h1>UK Wind Generation – Day-Ahead Forecast Portal</h1>
+          <div className="brand"><img src="/wind-mark.svg" alt="" /><span>WindCast</span></div>
+          <h1>WindCast — Day-Ahead Forecast Portal</h1>
           <p className="sub">
             National wind forecasts (Elexon WINDFOR) vs outturn (FUELHH) · January 2026 deliveries
           </p>
